@@ -1,16 +1,7 @@
 
-<!DOCTYPE html>
-<html lang="pt-br">
+@extends('layout.main')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url('assets/css/formulario.css') }}">
-    <title>Contato</title>
-</head>
-
-<body>
-
+@section('content')
     <section class="card">
 
         <form action="/form-enviar" method="post">
@@ -25,7 +16,7 @@
                     <label>EMAIL</label>
                     <input type="email" name="email" id="email" placeholder="Email">
                     <label>NUMERO</label>
-                    <input type="number" name="numero" id="numero" placeholder="Numero">
+                    <input id="telefone" type="text" name="numero" placeholder="Numero">
                     <label>ESCOLHA</label>
                     <select name="seletor" id="seletor">
                         <option>nenhum</option>
@@ -61,8 +52,16 @@
 
     </section>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+        
+    <script type="text/javascript">
+        let telefone = document.getElementById('telefone')
+        $(telefone).ready(function(){ $('#telefone').mask("(00) 0000-0000");})
+ 
+    </script>
 
 
-</body>
 
-</html>
+@endsection
